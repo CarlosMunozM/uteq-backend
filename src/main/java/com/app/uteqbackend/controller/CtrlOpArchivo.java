@@ -2,7 +2,9 @@ package com.app.uteqbackend.controller;
 
 import com.app.uteqbackend.model.Archivo;
 import com.app.uteqbackend.service.ArchivoService;
+
 import java.util.List;
+
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 // @CrossOrigin(origins = {"https://webapp.uteq.edu.ec", "https://www.uteq.edu.ec/", "https://uteq.edu.ec"})
-@CrossOrigin(origins="*")
+@CrossOrigin(origins = "*")
 @RequestMapping("/ws/files")
 public class CtrlOpArchivo {
 
@@ -38,7 +40,7 @@ public class CtrlOpArchivo {
             return null;
         }
     }
-    
+
     @GetMapping("/short-list/{type}")
     public List<Archivo> getListShortFilesUniversity(@PathVariable("type") String type) {
         try {
@@ -58,7 +60,7 @@ public class CtrlOpArchivo {
             return null;
         }
     }
-    
+
     @GetMapping("/short-list-formats-lang/{type}")
     public List<Archivo> getListShortFilesFormtsUniversityLang(@PathVariable("type") String type) {
         try {
@@ -118,7 +120,7 @@ public class CtrlOpArchivo {
             return null;
         }
     }
-    
+
     //Methods by language
     @GetMapping("/list-files-lang/{type}/{language}")
     public List<Archivo> getListShortDocsFilesUniversityByLanguage(@PathVariable("type") String type, @PathVariable("language") String language) {
@@ -129,7 +131,7 @@ public class CtrlOpArchivo {
             return null;
         }
     }
-    
+
     @GetMapping("/files-languages/{type}")
     public List<Archivo> getListShortDocsFilesUniversityLanguages(@PathVariable("type") String type) {
         try {
@@ -139,7 +141,7 @@ public class CtrlOpArchivo {
             return null;
         }
     }
-    
+
     @GetMapping("/short-list-logos-lang/{type}")
     public List<Archivo> getListShortFilesLogosUniversityLang(@PathVariable("type") String type) {
         try {
@@ -149,8 +151,8 @@ public class CtrlOpArchivo {
             return null;
         }
     }
-    
-    
+
+
 //</editor-fold>
 
 }

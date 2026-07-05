@@ -22,17 +22,42 @@ public class Usuario implements Serializable {
     @Column(name = "email", nullable = false, unique = true, length = 100)
     private String email;
 
-    @Column(name = "rol", nullable = false, length = 50)
-    private String rol;
+    @Column(name = "clave", nullable = false, length = 255)
+    private String clave;
 
     @Column(name = "activo")
     private Boolean activo = true;
 
-    // Constructor vacío obligatorio para JPA
+    // Relación ManyToOne: Muchos usuarios pertenecen a un Rol
+    @ManyToOne
+    @JoinColumn(name = "id_rol", referencedColumnName = "id", nullable = false)
+    private Rol rol;
+
     public Usuario() {
     }
 
-    // Getters y Setters
+    // Constructor optimizado para la consulta JPQL "getShortListUsersUTEQ"
+    public Usuario(String nombre, String email) {
+        this.nombre = nombre;
+        this.email = email;
+    }
+
+    public Usuario(Integer id, String nombre, String email, String clave, Rol rol) {
+        this.id = id;
+        this.nombre = nombre;
+        this.email = email;
+        this.clave = clave;
+        this.rol = rol;
+    }
+
+    public Usuario(Usuario usuario) {
+        this.id = usuario.getId();
+        this.nombre = usuario.getNombre();
+        this.email = usuario.getEmail();
+        this.clave = usuario.getClave();
+        this.rol = usuario.getRol();
+    }
+
     public Integer getId() {
         return id;
     }
@@ -57,12 +82,12 @@ public class Usuario implements Serializable {
         this.email = email;
     }
 
-    public String getRol() {
-        return rol;
+    public String getClave() {
+        return clave;
     }
 
-    public void setRol(String rol) {
-        this.rol = rol;
+    public void setClave(String clave) {
+        this.clave = clave;
     }
 
     public Boolean getActivo() {
@@ -71,5 +96,13 @@ public class Usuario implements Serializable {
 
     public void setActivo(Boolean activo) {
         this.activo = activo;
+    }
+
+    public Rol getRol() {
+        return rol;
+    }
+
+    public void setRol(Rol rol) {
+        this.rol = rol;
     }
 }
