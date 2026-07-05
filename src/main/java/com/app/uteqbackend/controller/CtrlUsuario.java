@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  *
- * @author Carlos Muñoz 2
+ * @author Carlos Muñoz
  */
 @RestController
 @RequestMapping("/api/usuarios")
