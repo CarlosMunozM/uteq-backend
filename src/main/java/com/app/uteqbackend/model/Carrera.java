@@ -287,6 +287,9 @@ public class Carrera implements Serializable{
     
     @Column(name="url_page_careers", nullable=true)
     private String crUrlPageCareers;
+
+    @Column(name = "ingreso_directo")
+    private Boolean crIngresoDirecto;
     
     public Carrera() {
         super();
@@ -1192,6 +1195,14 @@ public class Carrera implements Serializable{
     public void setCrUrlPageCareers(String crUrlPageCareers) {
         this.crUrlPageCareers = crUrlPageCareers;
     }
-//</editor-fold>
+
+    public Boolean getCrIngresoDirecto() {
+        return crIngresoDirecto;
+    }
+
+    public void setCrIngresoDirecto(Boolean crIngresoDirecto) {
+        this.crIngresoDirecto = crIngresoDirecto;
+    }
+    //</editor-fold>
 
 }
